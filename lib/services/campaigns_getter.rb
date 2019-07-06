@@ -1,5 +1,5 @@
 require_relative 'concerns/callable'
-require 'byebug'
+require_relative '../models/campaign'
 
 class CampaignsGetter
   include Callable

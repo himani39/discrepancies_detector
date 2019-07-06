@@ -1,11 +1,12 @@
+require_relative 'concerns/callable'
+require 'httparty'
 
 class AdsGetter
   include Callable
-  require 'httparty'
 
   def call
     response = HTTParty.get(ad_service_url)
-    response.parsed_response["ads"]
+    response.parsed_response[:ads]
   end
 
   private

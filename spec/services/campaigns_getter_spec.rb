@@ -11,6 +11,7 @@ describe CampaignsGetter do
   describe '#call' do
     subject { CampaignsGetter.call }
     it "gets all the campaigns" do
+      expect(subject).to be_an_instance_of(Array)
       expect(subject.length).to eq(2)
     end
   end

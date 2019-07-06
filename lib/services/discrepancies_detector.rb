@@ -1,3 +1,7 @@
+require_relative 'concerns/callable'
+require_relative 'campaigns_getter'
+require_relative 'ads_getter'
+
 class DiscrepanciesDetector
   include Callable
 
@@ -11,17 +15,17 @@ class DiscrepanciesDetector
   private
 
   def local_campaigns
-    @local_campaigns ||= CampaignsGetter.call
+    CampaignsGetter.call
   end
 
   def remote_campaigns
-    @remote_campaigns ||= AdsGetter.call
+    AdsGetter.call
   end
 
   def compare(reference, campaigns)
-    if (campaigns.length == 1) {
+    if (campaigns.length == 1)
       campaigns = campaigns.first[:local] ? [campaigns.first, {}] : [{}, campaigns.first]
-    }
+    end
 
     {
       remote_reference: reference,
@@ -32,7 +36,7 @@ class DiscrepanciesDetector
   def discrepancies(local_campaign, remote_campaign)
     discrepancies = {}
     discrepancies["status"] = { "local": local_campaign[:status], "remote": remote_campaign[:status] } unless status_matches?(local_campaign, remote_campaign)
-    discrepancies["description"] = { "local": local_campaign[:ad_description], "remote": remote_campaign[:description] } unless description_matches?(local_campaign, remote_campaign)
+    discrepancies["description"] = { "local": local_campaign[:description], "remote": remote_campaign[:description] } unless description_matches?(local_campaign, remote_campaign)
     discrepancies
   end
 

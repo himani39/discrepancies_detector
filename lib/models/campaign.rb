@@ -14,7 +14,19 @@ class Campaign < ActiveRecord::Base
       reference: external_reference,
       local: true,
       description: ad_description,
-      status: status
+      status: ad_status
     }
+  end
+
+
+  def ad_status
+    case status
+    when "active"
+      "enabled"
+    when "paused"
+      "disabled"
+    when "deleted"
+      "deleted"
+    end
   end
 end
