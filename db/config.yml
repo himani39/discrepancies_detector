@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+
+development:
+  <<: *default
+  database: campaigns_development
+
+test:
+  <<: *default
+  database: campaigns_test
+
+production:
+  <<: *default
+  database: campaigns_production
