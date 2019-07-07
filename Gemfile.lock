@@ -94,13 +94,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord
-  activesupport
+  activerecord (~> 5.2.3)
+  activesupport (~> 5.2.3)
   byebug
   database_cleaner
   factory_bot
-  httparty
-  pg
+  httparty (~> 0.17.0)
+  pg (~> 1.1.4)
   rspec
   standalone_migrations
 

@@ -13,6 +13,7 @@ describe CampaignsGetter do
     it "gets all the campaigns" do
       expect(subject).to be_an_instance_of(Array)
       expect(subject.length).to eq(2)
+      expect(subject.first.keys).to eq([:reference, :local, :description, :status])
     end
   end
 end

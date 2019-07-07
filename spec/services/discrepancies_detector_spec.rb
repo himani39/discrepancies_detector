@@ -27,7 +27,7 @@ describe DiscrepanciesDetector do
       end
     end
 
-    context "when a remote campaign is not added to local campaigns data" do
+    context "when a remote campaign is not added to local campaigns" do
       before do
         allow_any_instance_of(DiscrepanciesDetector).to receive(:local_campaigns).and_return([])
         allow_any_instance_of(DiscrepanciesDetector).to receive(:remote_campaigns).and_return([{ reference: "1", status: "disabled", description: "Some description"}])

@@ -17,9 +17,10 @@ ActiveRecord::Schema.define(version: 2019_07_05_024229) do
 
   create_table "campaigns", force: :cascade do |t|
     t.integer "external_reference"
-    t.text "ad_decription"
+    t.text "ad_description"
     t.string "status"
     t.integer "job_id"
+    t.index ["external_reference"], name: "index_campaigns_on_external_reference", unique: true
   end
 
 end

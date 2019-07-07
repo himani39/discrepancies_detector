@@ -8,7 +8,9 @@ end
 ActiveRecord::Base.establish_connection(db_configuration["development"])
 
 class Campaign < ActiveRecord::Base
+
   attr_accessor :external_reference, :ad_description, :status
+
   def details
     {
       reference: external_reference,
@@ -18,6 +20,8 @@ class Campaign < ActiveRecord::Base
     }
   end
 
+
+  private
 
   def ad_status
     case status
