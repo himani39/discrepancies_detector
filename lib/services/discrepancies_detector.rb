@@ -35,17 +35,8 @@ class DiscrepanciesDetector
 
   def discrepancies(local_campaign, remote_campaign)
     discrepancies = {}
-    discrepancies["status"] = { "local": local_campaign[:status], "remote": remote_campaign[:status] } unless status_matches?(local_campaign, remote_campaign)
-    discrepancies["description"] = { "local": local_campaign[:description], "remote": remote_campaign[:description] } unless description_matches?(local_campaign, remote_campaign)
+    discrepancies["status"] = { "local": local_campaign[:status], "remote": remote_campaign[:status] } unless local_campaign[:status] == remote_campaign[:status]
+    discrepancies["description"] = { "local": local_campaign[:description], "remote": remote_campaign[:description] } unless local_campaign[:description] == remote_campaign[:description]
     discrepancies
-  end
-
-
-  def status_matches?(local_campaign, remote_campaign)
-    local_campaign[:status] == remote_campaign[:status]
-  end
-
-  def description_matches?(local_campaign, remote_campaign)
-    local_campaign[:description] == remote_campaign[:description]
   end
 end
