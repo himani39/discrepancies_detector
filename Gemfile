@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'activerecord', '~> 5.2.3'
+gem 'activerecord', '~> 7.0.4'
 gem 'pg', '~> 1.1.4'
-gem 'activesupport', '~> 5.2.3'
+gem 'activesupport', '~> 7.0.4'
 gem 'httparty', '~> 0.17.0'
 
 group :test, :development do
